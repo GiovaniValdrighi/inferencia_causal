@@ -18,7 +18,7 @@ def setup_data_loader(images, classes, batch_size = 128, use_CUDA = False):
     :train_loader: torch data loader with train data (images and latents)
     :test_loader: torch data loader with test data (images and latents)
     '''
-    index = np.random.permutation(imgs.shape[0])
+    index = np.random.permutation(images.shape[0])
     images = images[index].astype(np.float32)
     classes = classes[index].astype(np.float32)
     train_df = torch.utils.data.TensorDataset(torch.from_numpy(images[100000:].reshape(-1, 4096)), torch.from_numpy(classes[100000:]))
